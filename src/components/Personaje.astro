@@ -1,0 +1,10 @@
+---
+const {personaje} = Astro.props 
+console.log(personaje)
+const {name, image, id} = personaje
+---
+
+    <div class="personaje">
+        <a href={`/infopersonaje/${id}`}><h1>{name}</h1></a>
+        <img src={image} alt="">
+    </div>

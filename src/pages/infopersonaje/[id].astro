@@ -1,0 +1,21 @@
+---
+
+import Layout from "../../layouts/Layout.astro"
+
+export async function getStaticPaths(){
+    const datos = await fetch('https://rickandmortyapi.com/api/character')
+    const data = await datos.json()
+    const personajes = data.results
+    return personajes.map((personaje) => ({
+        params:{
+            id: personaje.id
+        },
+        props:{
+            personaje: personaje
+        }
+    }))
+}
+---
+
+
+<h1>Este es el componente de cada personaje, que muesta info de cada personaje</h1>
